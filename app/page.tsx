@@ -35,7 +35,12 @@ export default function Home() {
                 <input type={"text"} className={"text-center p-2"} placeholder={"Enter anime name..."} onKeyDown={(e) => e.key === "Enter" && findAnimeByName()} onChange={(e) => setName(e.target.value)}></input>
                 <input type={"button"} className={"text-center p-2"} value={loading ? "Searching" : "Submit"} onClick={findAnimeByName} disabled={loading}></input>
             </div>
-            <AnimeList list={animeList}/>
+            {loading ? (
+                <p className={"text-xl text-gray text-center"}>Loading...</p>
+            ) : (
+                <AnimeList list={animeList}/>
+            )}
+
         </>
     );
 }
