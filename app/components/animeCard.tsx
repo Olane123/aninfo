@@ -1,4 +1,5 @@
 import {ShikimoriAnime} from "@/app/api/animeList/animeList";
+import Image from "next/image";
 
 interface AnimeCardProps {
     anime: ShikimoriAnime;
@@ -17,12 +18,15 @@ export const AnimeCard: React.FC<AnimeCardProps> = ({anime}) => {
     return (
         <div className={"bg-[#343942] rounded-lg overflow-hidden shadow-lg p-4 flex flex-col items-center"}>
             {anime.image?.original && (
-                <img
-                    src={anime.image?.original}
+                <Image
+                    src={imgSrc}
                     alt={anime.russian}
                     className={"w-full h-64 object-cover rounded"}
                     loading="lazy"
                     referrerPolicy={"no-referrer"}
+                    width={256}
+                    height={384}
+                    unoptimized
                     onError={(e) => {
                         const target = e.target as HTMLImageElement;
                         if (target.src !== FALLBACK_IMG) {

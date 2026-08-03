@@ -2,6 +2,7 @@
 import { useState } from "react";
 import type { ShikimoriAnime } from "@/app/api/animeList/animeList";
 import { AnimeCard } from "@/app/components/animeCard";
+import Image from "next/image";
 
 interface AnimeListProps {
     list: ShikimoriAnime[];
@@ -44,9 +45,12 @@ export const AnimeList: React.FC<AnimeListProps> = ({ list }) => {
 
 
                         <div className="shrink-0 w-full md:w-48 mb-4 md:mb-0">
-                            <img
+                            <Image
                                 src={selectedAnime.image?.original || selectedAnime.image?.preview || FALLBACK_IMG}
                                 alt={selectedAnime.russian || selectedAnime.name}
+                                width={256}
+                                height={384}
+                                unoptimized
                                 referrerPolicy={"no-referrer"}
                                 className="w-full h-auto object-cover rounded-lg shadow-md bg-[#1a1d24]"
                             />
