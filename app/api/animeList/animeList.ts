@@ -14,8 +14,8 @@ export interface ShikimoriAnime {
     };
 }
 
-const USER_AGENT = "https://aninfo-woad.vercel.app/1.0.0 (contact: olaneyt3@gmail.com)";
-const SHIKIMORI_CDN = "https://shikimori.one";
+const USER_AGENT = "AnInfo/1.0.0 (contact: olaneyt3@gmail.com)";
+const SHIKIMORI_CDN = "https://shikimori.io";
 
 const FALLBACK_IMAGE = `data:image/svg+xml,${encodeURIComponent(
     '<svg xmlns="http://www.w3.org/2000/svg" width="300" height="400">' +
@@ -26,6 +26,7 @@ const FALLBACK_IMAGE = `data:image/svg+xml,${encodeURIComponent(
 
 async function getAnimeByName(name: string): Promise<ShikimoriAnime[]> {
     const encodedName = encodeURIComponent(name).toLowerCase();
+
     const url = `https://shikimori.one/api/animes?search=${encodedName}&limit=5`;
 
     const headers = {
@@ -61,9 +62,9 @@ async function getAnimeByName(name: string): Promise<ShikimoriAnime[]> {
                     for (const key of keys) {
                         const imgUrl = fullData.image[key];
                         if (typeof imgUrl === "string" && imgUrl.trim() !== "") {
-                            sanitizedImages[key] = imgUrl.startsWith("https")
+                            sanitizedImages[key] = imgUrl.startsWith("http")
                                 ? imgUrl
-                                : `${SHIKIMORI_CDN}${imgUrl}`;
+                                : `https://shikimori.io${imgUrl}`;
                         }
                     }
                 }
