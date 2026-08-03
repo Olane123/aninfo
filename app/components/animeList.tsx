@@ -14,7 +14,7 @@ export const AnimeList: React.FC<AnimeListProps> = ({list}) => {
                             src={anime.images.jpg.large_image_url}
                             alt={anime.title}
                             className="w-full h-72 object-cover rounded shadow"
-                            loading="lazy" // Оптимизация загрузки картинок
+                            loading="lazy"
                         />
                     )}
                     <h3 className="text-lg font-bold mt-4 line-clamp-2 min-h-14 flex items-center text-center">
