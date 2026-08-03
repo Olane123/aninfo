@@ -1,13 +1,13 @@
 "use client"
 
-import {getAnimeByName, JikanAnime} from "@/app/api/animeList/animeList";
+import {getAnimeByName, ShikimoriAnime} from "@/app/api/animeList/animeList";
 import {useState} from "react";
 import {AnimeList} from "@/app/components/animeList";
 
 export default function Home() {
     const [name, setName] = useState("");
     const [loading, setLoading] = useState(false);
-    const [animeList, setAnimeList] = useState<JikanAnime[]>([]);
+    const [animeList, setAnimeList] = useState<ShikimoriAnime[]>([]);
 
     const findAnimeByName = async () => {
         if (loading || name.length === 0) return;
@@ -19,6 +19,7 @@ export default function Home() {
             if (data)
             {
                 setAnimeList(data);
+                console.log(data);
             }
         }
         catch(error) {
@@ -40,7 +41,6 @@ export default function Home() {
             ) : (
                 <AnimeList list={animeList}/>
             )}
-
         </>
     );
 }
