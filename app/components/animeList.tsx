@@ -29,11 +29,11 @@ export const AnimeList: React.FC<AnimeListProps> = ({ list }) => {
             {selectedAnime && (
                 <div
                     className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm"
-                    onClick={() => setSelectedAnime(null)} // Закрытие при клике по фону
+                    onClick={() => setSelectedAnime(null)}
                 >
                     <div
                         className="bg-[#242830] text-white rounded-xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto flex flex-col md:flex-row p-6 relative border border-gray-700/50"
-                        onClick={(e) => e.stopPropagation()} // Защита от закрытия при клике внутри окна
+                        onClick={(e) => e.stopPropagation()}
                     >
                         <button
                             className="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl transition-colors custom-close-btn cursor-pointer"
@@ -47,6 +47,7 @@ export const AnimeList: React.FC<AnimeListProps> = ({ list }) => {
                             <img
                                 src={selectedAnime.image?.original || selectedAnime.image?.preview || FALLBACK_IMG}
                                 alt={selectedAnime.russian || selectedAnime.name}
+                                referrerPolicy={"no-referrer"}
                                 className="w-full h-auto object-cover rounded-lg shadow-md bg-[#1a1d24]"
                             />
                         </div>
