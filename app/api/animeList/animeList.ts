@@ -5,6 +5,13 @@ export interface ShikimoriAnime {
     name: string;
     russian: string;
     description: string;
+    score: number;
+
+    episodes: number;
+    aired_on: string
+
+    rating: string;
+
     image: {
         original: string;
         preview: string;
@@ -70,7 +77,10 @@ async function getAnimeByName(name: string): Promise<ShikimoriAnime[]> {
                 fullData.image = sanitizedImages;
 
                 fullData.russian = fullData.russian || fullData.name;
-                fullData.description = fullData.description || "No description available.";
+                fullData.description = fullData.description || "Описание не найденно.";
+                fullData.score = fullData.score || "Информация о рейтинге не найдена.";
+                fullData.episodes = fullData.episodes || "Информация о эпизодах не найдена.";
+                fullData.rating = fullData.rating || "Информация о возврастном рейтинге не найдена.";
 
                 detailedAnimes.push(fullData);
             }
