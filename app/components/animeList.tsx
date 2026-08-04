@@ -76,8 +76,6 @@ export const AnimeList: React.FC<AnimeListProps> = ({ list }) => {
                                     <p className={"text-sm text-gray-400 mt-1 italic"}>Выпущен/Выйдет: {selectedAnime.aired_on}</p>
                                     <p className={"text-sm text-gray-400 mt-1 italic"}>Эпизодов: {selectedAnime.episodes}</p>
                                     <p className={"text-sm text-gray-400 mt-1 italic"}>Рейтинг: {selectedAnime.rating.toUpperCase()}</p>
-
-                                    <Image src={selectedAnime.studios.image} alt={selectedAnime.studios.filtered_name}></Image>
                                 </>
                             )}
                             <div className={"mt-5"}>
