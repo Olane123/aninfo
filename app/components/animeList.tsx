@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import {useEffect, useState} from "react";
 import type { ShikimoriAnime } from "@/app/api/animeList/animeList";
 import { AnimeCard } from "@/app/components/animeCard";
 import Image from "next/image";
@@ -13,8 +13,17 @@ const FALLBACK_IMG = "data:image/svg+xml,%3Csvg xmlns='http://w3.org' width='300
 export const AnimeList: React.FC<AnimeListProps> = ({ list }) => {
     const [selectedAnime, setSelectedAnime] = useState<ShikimoriAnime | null>(null);
 
+    useEffect(() => {
+        if (selectedAnime !== null) {
+            document.body.style.overflow = "hidden";
+        }
+        else{
+            document.body.style.overflow = "auto";
+        }
+    })
+
     return (
-        <div className="max-w-6xl mx-auto mt-3 px-4">
+        <div className={`max-w-6xl mx-auto mt-3 px-4`}>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 {list.map((anime) => (
                     <div

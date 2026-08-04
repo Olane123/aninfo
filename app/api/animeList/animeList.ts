@@ -5,7 +5,6 @@ export interface ShikimoriAnime {
     name: string;
     russian: string;
     description: string;
-    description_html: string;
     image: {
         original: string;
         preview: string;
