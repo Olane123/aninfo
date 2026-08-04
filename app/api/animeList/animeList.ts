@@ -19,8 +19,7 @@ export interface ShikimoriAnime {
         x48: string;
     };
 }
-
-const USER_AGENT = "AnInfo/1.0.0 (contact: olaneyt3@gmail.com)";
+const USER_AGENT="AnInfo/1.0.0"
 const SHIKIMORI_CDN = "https://shikimori.io";
 
 const FALLBACK_IMAGE = `data:image/svg+xml,${encodeURIComponent(
