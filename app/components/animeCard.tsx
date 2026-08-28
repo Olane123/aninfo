@@ -31,7 +31,7 @@ export const AnimeCard: React.FC<AnimeCardProps> = ({anime}) => {
                         const target = e.target as HTMLImageElement;
                         if (target.src !== FALLBACK_IMG) {
                             target.src = FALLBACK_IMG;
-                        }
+                      }
                     }}
                 />
             )}

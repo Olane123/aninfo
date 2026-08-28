@@ -37,9 +37,9 @@ export default function Home() {
                 <input type={"button"} className={"text-center p-2 border-2 rounded-[15px]  bg-[#1c1f24] border-[#1c1f24] m-2 transition-all hover:outline-2 hover:outline-amber-500 hover:scale-110"} value={loading ? "Поиск..." : "Подтвердить"} onClick={findAnimeByName} disabled={loading}></input>
             </div>
             {loading ? (
-                <p className={"text-xl text-gray text-center"}>Загрузка...</p>
+                <p className={"text-xl text-gray text-center m-10"}>Загрузка...</p>
             ) : (
-                <AnimeList list={animeList}/>
+            <AnimeList list={animeList} />
             )}
         </>
     );
